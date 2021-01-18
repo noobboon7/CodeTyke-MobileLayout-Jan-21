@@ -12,11 +12,21 @@
         color: $morning-sky;
         font-weight: 600;
         font-size: 1.5em;
+        /* Align the title to the left. ✅*/
+        @media screen and (max-width: $mobile){
+            text-align: start;
+        }
     }
-
+    /*  
+    Don't display the subheader on each question. 
+    (We'll hide it for now and find a better solution in a subsequent assignment.) 
+    */
     &__subHeader{
         @include subheader;
         min-height: 42px;
+        @media screen and (max-width: $mobile){
+            display: none;
+        }
     }
   
     &__answerArea {
@@ -29,6 +39,12 @@
         @media only screen and (max-width: $tablet) {
             border-radius: unset;
         }
+        /*White container for the answers is removed.*/
+        @media only screen and (max-width: $mobile) {
+            background-color: transparent;
+            box-shadow: none;
+
+        }
 
     }
 
@@ -37,12 +53,30 @@
         display: grid;
         grid-auto-flow: column;
         grid-gap: 10px;
+        // 2x2 grid for table and mobile
+        @media screen and (max-width: $tablet ){
+            grid-template-rows: 1fr 1fr;
+            justify-content: space-evenly;
+            grid-gap: 30px;
+        }
+        @media screen and (max-width: $mobile ){
+            grid-gap: 10px;
+            grid-template-rows: 1fr 1fr;
+            justify-content: center;
+        }
     }
 
     &__submitButtonContainer {
         height: 50px;
         .submitButton {
             float: right;
+            // center button for table and mobile 
+            @media screen and (max-width: $tablet ){
+                float: none;
+                margin: auto;
+                width: 80%; // Button for answer submission is full-width.???🤔
+                text-align: center;
+            }
         }
     }
 }

@@ -7,7 +7,7 @@ import LearningModule from './components/learningModule/LearningModule';
 import './styles/App.scss';
 
 function App() {
-  const [gameStatus, setGameStatus] = React.useState({message: "Welcome", loadIntro: true});
+  const [gameStatus, setGameStatus] = React.useState({message: "Welcome", loadIntro: !true});
 
   return (
     <div>
